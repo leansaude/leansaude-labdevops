@@ -76,7 +76,7 @@ stages:
         value: HML
     jobs:
     - deployment: Deploy
-      displayName: 'Plan HML'
+      displayName: 'Apply HML'
       pool:
         vmImage: 'ubuntu-latest'
       environment: 'HML'
