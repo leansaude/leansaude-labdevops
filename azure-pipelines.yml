@@ -67,7 +67,6 @@ stages:
                 terraform init
                 terraform workspace select -or-create $(ENV)
                 terraform plan -var-file=./tfvars/$(ENV).tfvars
-                terraform apply -var-file=./tfvars/$(ENV).tfvars -auto-approve
   - stage: deployHml
     displayName: 'Deploy HML'
     variables:
