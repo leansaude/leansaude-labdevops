@@ -63,7 +63,6 @@ stages:
                 export AWS_DEFAULT_REGION=$(AWS_DEFAULT_REGION)
                 export TF_VAR_AWS_IAM_USER_KEY=$(AWS_ACCESS_KEY_ID)
                 export TF_VAR_AWS_IAM_USER_SECRET_KEY=$(AWS_SECRET_ACCESS_KEY)
-                ls -la
                 terraform init
                 terraform workspace select -or-create $(ENV)
                 terraform plan -var-file=./tfvars/$(ENV).tfvars
