@@ -34,7 +34,7 @@ stages:
         displayName: 'Publish npm artifact'
   - stage: HML
     variables:
-      - group: vg_deploy
+      - group: HML
       - name: HML
         value: HML
     jobs:
