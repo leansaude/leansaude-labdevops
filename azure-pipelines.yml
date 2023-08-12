@@ -23,7 +23,7 @@ stages:
           terraformVersion: 'latest'
       - task: ArchiveFiles@2
         inputs:
-          rootFolderOrFile: '$(Build.SourcesDirectory)/dist'
+          rootFolderOrFile: '$(Build.SourcesDirectory)'
           archiveType: 'zip'
           archiveFile: '$(Build.ArtifactStagingDirectory)/terraform.zip' 
       - task: PublishPipelineArtifact@1
@@ -31,7 +31,7 @@ stages:
           artifactName: bucket-pdf-service
           targetPath: '$(Build.ArtifactStagingDirectory)'
           publishLocation: 'pipeline'
-        displayName: 'Publish npm artifact'
+        displayName: 'Publish Terraform artifact'
   - stage: HML
     variables:
       - group: HML
