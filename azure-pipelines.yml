@@ -10,9 +10,9 @@ pool:
 stages:
   - stage: CI
     variables:
-      - group: vg_deploy
+      - group: HML
       - name: ENV
-        value: dev
+        value: HML
     displayName: Continuous Integration
     jobs:
     - job: build
