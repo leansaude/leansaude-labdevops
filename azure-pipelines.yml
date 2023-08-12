@@ -33,6 +33,7 @@ stages:
           publishLocation: 'pipeline'
         displayName: 'Publish Terraform artifact'
   - stage: HML
+    displayName: 'Deploy HML'
     variables:
       - group: HML
       - name: HML
