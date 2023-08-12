@@ -66,6 +66,7 @@ stages:
                 ls -la
                 cd terraform
                 ls -la
+                cd tfvars
                 terraform init
                 terraform workspace select -or-create $(ENV)
                 terraform plan -var-file=./tfvars/$(ENV).tfvars
