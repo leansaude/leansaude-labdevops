@@ -65,6 +65,6 @@ stages:
                 export TF_VAR_AWS_IAM_USER_SECRET_KEY=$(AWS_SECRET_ACCESS_KEY)
                 cd terraform
                 terraform init
-                terraform workspace select -or-create dev
-                terraform plan -var-file=./tfvars/dev.tfvars
-                terraform apply -var-file=./tfvars/dev.tfvars -auto-approve
+                terraform workspace select -or-create $(ENV)
+                terraform plan -var-file=./tfvars/$(ENV).tfvars
+                terraform apply -var-file=./tfvars/$(ENV).tfvars -auto-approve
