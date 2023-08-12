@@ -32,7 +32,7 @@ stages:
           targetPath: '$(Build.ArtifactStagingDirectory)'
           publishLocation: 'pipeline'
         displayName: 'Publish Terraform artifact'
-  - stage: Plan HML
+  - stage: HML
     variables:
       - group: HML
       - name: HML
@@ -67,7 +67,7 @@ stages:
                 terraform workspace select -or-create $(ENV)
                 terraform plan -var-file=./tfvars/$(ENV).tfvars
                 terraform apply -var-file=./tfvars/$(ENV).tfvars -auto-approve
-  - stage: Apply HML
+  - stage: HML
     variables:
       - group: HML
       - name: HML
