@@ -43,7 +43,6 @@ stages:
       displayName: 'Plan HML'
       pool:
         vmImage: 'ubuntu-latest'
-      environment: 'HML'
       strategy:
         runOnce:
           deploy:
