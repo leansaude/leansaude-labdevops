@@ -1,4 +1,11 @@
-# File: azure-pipelines.yml
-
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: templates
+    ref: main
 jobs:
-- template: templates/jobs.yml  # Template reference
+- job: Terraform
+  displayName: 'Terraform'
+  steps:
+  - template: jobs.yml@templates
