@@ -8,4 +8,4 @@ jobs:
 - job: Terraform
   displayName: 'Terraform'
   steps:
-  - template: jobs.yml@templates
+  - template: build-terraform.yml@templates
