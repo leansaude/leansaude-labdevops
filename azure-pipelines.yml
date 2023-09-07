@@ -1,33 +1,11 @@
-name: $(BuildDefinitionName)_$(date:yyyyMMdd)$(rev:.r)
- 
-trigger: none
- 
-pr: none
- 
-variables:
-  - group: azurefestivecalendar-production
-  - name: backendServiceArm
-    value: 'tamopstf2'
-  - name: backendAzureRmResourceGroupName
-    value: 'tamopstfstates'
-  - name: backendAzureRmStorageAccountName
-    value: 'tfstatedevops'
-  - name: backendAzureRmContainerName
-    value: 'azuredevopstemplates'
-  - name: backendAzureRmKey
-    value: 'terraform.tfstate'
-  - name: environment
-    value: 'production'
-  - name: terraform_version
-    value: '0.13.3'
-  - name: ruby_versionspec
-    value: '>= 2.5'
- 
-stages :  
-  - stage: cli
-    dependsOn: [terraform_apply]
-    condition: succeeded('terraform_apply')
-    jobs:
-      - template: templates/az-cli.yaml
-        parameters:
-          resource_group: "bicep-rg"
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: templates
+    ref: main
+jobs:
+- job: Terraform
+  displayName: 'Terraform'
+  steps:
+  - template: build-docker-image.yaml@templates
